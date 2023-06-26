@@ -5,7 +5,9 @@ import App from "./App.jsx";
 import { store } from "../src/redux/store";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { disableReactDevTools } from "@fvilers/disable-react-devtools";
+
+if (process.env.NODE_ENV === "production") disableReactDevTools();
 
 const queryClient = new QueryClient();
 
@@ -15,7 +17,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Provider store={store}>
         <App />
       </Provider>
-      <ReactQueryDevtools />
     </QueryClientProvider>
   </React.StrictMode>
 );
