@@ -1,0 +1,66 @@
+@import "../../responsive.scss";
+
+.rightbar {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow: scroll;
+    background-color: var(--background-light);
+
+    @include mobile {
+        display: none;
+    }
+
+    @include tablet {
+        display: none;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .suggestions,
+    .activities,
+    .online-friends {
+        -webkit-box-shadow: var(--box-shadow);
+        -moz-box-shadow: var(--box-shadow);
+        box-shadow: var(--box-shadow);
+        padding: 20px;
+        border-radius: 5px;
+        font-size: 14px;
+        background-color: var(--background);
+
+        .title {
+            color: gray;
+        }
+
+        .msg {
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--text-color);
+        }
+
+        .user {
+            .img {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            span {
+                font-weight: 500;
+                color: var(--text-color);
+            }
+        }
+    }
+
+    .online-friends {
+        .user {
+            margin-top: 20px;
+        }
+    }
+}

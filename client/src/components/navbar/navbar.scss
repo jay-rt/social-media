@@ -1,0 +1,77 @@
+@import "../../responsive.scss";
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 10px 20px;
+    border: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background-color: var(--background);
+    color: var(--text-color);
+    z-index: 1000;
+
+    .icon {
+        cursor: pointer;
+    }
+
+    .left {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        .logo {
+            font-weight: bold;
+            font-size: 20px;
+            color: var(--logo);
+            cursor: pointer;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 5px;
+
+            input {
+                border: none;
+                width: 450px;
+                background: transparent;
+                outline: none;
+                color: var(--text-color);
+
+                @include mobile {
+                    display: none;
+                }
+
+                @include tablet {
+                    width: 250px;
+                }
+            }
+        }
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+
+        @include mobile {
+            display: none;
+        }
+
+        .user {
+            span {
+                font-weight: 500;
+
+                @include tablet {
+                    display: none;
+                }
+            }
+        }
+    }
+}

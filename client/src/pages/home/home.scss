@@ -1,0 +1,33 @@
+@import "../../responsive.scss";
+
+.home {
+    background-color: var(--background-light);
+    padding: 20px 70px;
+    min-height: calc(100vh - 60px);
+
+    @include mobile {
+        padding: 10px;
+    }
+
+    @include tablet {
+        padding: 20px;
+    }
+
+    .stories {
+        display: flex;
+        gap: 10px;
+        height: 250px;
+        margin-bottom: 30px;
+
+        @include tablet {
+            height: 200px;
+            gap: 15px;
+        }
+    }
+
+    .posts {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+}

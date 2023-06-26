@@ -1,0 +1,48 @@
+@import "../../responsive.scss";
+
+.leftbar {
+    flex: 2;
+    padding: 20px;
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow: scroll;
+    background-color: var(--background);
+    color: var(--text-color);
+
+    @include mobile {
+        display: none;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    hr {
+        margin: 20px 0;
+        border: none;
+        height: 0.5px;
+        background-color: var(--border);
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .menu__title {
+            font-size: 12px;
+        }
+
+        .user {
+            img {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+
+            span {
+                font-size: 14px;
+            }
+        }
+    }
+}

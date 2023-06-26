@@ -1,0 +1,13 @@
+.item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    img {
+        width: 1.5rem;
+    }
+
+    span {
+        font-size: 14px;
+    }
+}
