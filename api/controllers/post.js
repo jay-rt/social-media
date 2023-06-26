@@ -37,7 +37,7 @@ export const addPost = async (req, res) => {
     const q = "INSERT INTO posts (`user_id`, `desc`, `img`) VALUES (?)";
     const values = [userInfo.id, req.body.desc, req.body.img];
 
-    db.query(q, values, (err, data) => {
+    db.query(q, [values], (err, data) => {
       if (err) return res.status(500).json(err);
       return res.status(200).json("Successfully added new post!");
     });

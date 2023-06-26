@@ -31,6 +31,7 @@
             left: 0;
             top: 225px;
             margin: auto;
+            object-fit: cover;
         }
     }
 
@@ -46,7 +47,7 @@
         }
 
         .profile__user-info {
-            height: 250px;
+            height: 300px;
             -webkit-box-shadow: var(--box-shadow);
             -moz-box-shadow: var(--box-shadow);
             box-shadow: var(--box-shadow);
@@ -57,6 +58,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            text-align: center;
             margin-bottom: 20px;
 
             @include mobile {

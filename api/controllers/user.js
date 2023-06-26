@@ -36,7 +36,7 @@ export const updateUser = (req, res) => {
 
     db.query(q, values, (err, data) => {
       if (err) return res.status(500).json(err);
-      if (data.affectedRows > 1)
+      if (data.affectedRows > 0)
         return res.status(200).json("Update Successful!");
       return res.status(403).json("You can update only your profile");
     });
@@ -51,7 +51,7 @@ export const userSuggestion = (req, res) => {
   jwt.verify(token, process.env.JWT_SECRET, (err, userInfo) => {
     if (err) return res.status(403).json("Token is invalid!");
 
-    const q = `SELECT id, name, profile_pic FROM users WHERE id != ? and id NOT IN (SELECT followed_user_id FROM relationships WHERE follower_user_id = ?)`;
+    const q = `SELECT id, name, profile_pic FROM users WHERE id != ? and id NOT IN (SELECT followed_user_id FROM relationships WHERE follower_user_id = ?) LIMIT 3`;
 
     db.query(q, [userInfo.id, userInfo.id], (err, data) => {
       if (err) res.status(500).json(err);
