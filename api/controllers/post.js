@@ -14,7 +14,7 @@ export const getPosts = async (req, res) => {
     const q =
       userId !== "undefined"
         ? `SELECT p.*, u.name, u.profile_pic FROM posts AS p JOIN users AS u ON (u.id = p.user_id) WHERE p.user_id = ? ORDER BY p.created_at DESC`
-        : `SELECT p.*, u.name, u.profile_pic FROM posts AS p JOIN users AS u ON (u.id = p.user_id) LEFT JOIN relationships AS r ON (r.followed_user_id = p.user_id ) WHERE r.follower_user_id = ? OR p.user_id = ? ORDER BY p.created_at DESC`;
+        : `SELECT DISTINCT p.*, u.name, u.profile_pic FROM posts AS p JOIN users AS u ON (u.id = p.user_id) LEFT JOIN relationships AS r ON (r.followed_user_id = p.user_id ) WHERE r.follower_user_id = ? OR p.user_id = ? ORDER BY p.created_at DESC`;
 
     const values =
       userId !== "undefined" ? [userId] : [userInfo.id, userInfo.id];
