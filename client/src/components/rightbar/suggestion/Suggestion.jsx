@@ -4,6 +4,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../../axios";
 import { useSelector } from "react-redux";
 import { currentUser } from "../../../redux/userSlice";
+import { Link } from "react-router-dom";
 
 const Suggestion = ({ id, img, name }) => {
   const user = useSelector(currentUser);
@@ -30,7 +31,9 @@ const Suggestion = ({ id, img, name }) => {
 
   return (
     <div className="suggestion">
-      <User img={img} name={name} />
+      <Link to={`/profile/${id}`} className="link">
+        <User img={img} name={name} />
+      </Link>
       <div className="buttons">
         <button onClick={handleFollow}>Follow</button>
         <button>Dismiss</button>

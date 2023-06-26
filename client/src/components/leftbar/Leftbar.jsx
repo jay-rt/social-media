@@ -16,13 +16,16 @@ import Fund from "../../assets/13.png";
 import User from "../user/User";
 import { useSelector } from "react-redux";
 import { currentUser } from "../../redux/userSlice";
+import { Link } from "react-router-dom";
 
 const Leftbar = () => {
   const user = useSelector(currentUser);
   return (
     <div className="leftbar">
       <div className="menu">
-        <User img={"/upload/" + user.profile_pic} name={user.name} />
+        <Link to={`/profile/${user.id}`} className="link">
+          <User img={"/upload/" + user.profile_pic} name={user.name} />
+        </Link>
         <LeftbarItem img={Friends} title="Friends" />
         <LeftbarItem img={Groups} title="Groups" />
         <LeftbarItem img={Market} title="Marketplace" />
