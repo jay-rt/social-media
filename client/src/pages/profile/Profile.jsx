@@ -131,7 +131,11 @@ const Profile = () => {
                 <MoreVertIcon />
               </div>
             </div>
-            <Posts userId={id} />
+            {userId === user.id ? (
+              <Posts userId={id} />
+            ) : (
+              relationQuery?.data?.includes(user.id) && <Posts userId={id} />
+            )}
           </div>
           {openUpdate && (
             <Update setOpenUpdate={setOpenUpdate} user={userQuery.data} />
