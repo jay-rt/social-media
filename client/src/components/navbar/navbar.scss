@@ -37,16 +37,16 @@
             border-radius: 5px;
             padding: 5px;
 
+            @include mobile {
+                display: none;
+            }
+
             input {
                 border: none;
                 width: 450px;
                 background: transparent;
                 outline: none;
                 color: var(--text-color);
-
-                @include mobile {
-                    display: none;
-                }
 
                 @include tablet {
                     width: 250px;
@@ -60,11 +60,19 @@
         align-items: center;
         gap: 30px;
 
-        @include mobile {
-            display: none;
+        .icon {
+            &:not(:first-child) {
+                @include mobile {
+                    display: none;
+                }
+            }
         }
 
         .user {
+            @include mobile {
+                display: none;
+            }
+
             span {
                 font-weight: 500;
 

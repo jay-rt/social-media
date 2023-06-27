@@ -1,3 +1,5 @@
+@import "../../responsive.scss";
+
 .share {
     -webkit-box-shadow: var(--box-shadow);
     --moz-box-shadow: var(--box-shadow);
@@ -43,6 +45,10 @@
                 width: 150px;
                 height: auto;
                 object-fit: cover;
+
+                @include mobile {
+                    width: 60px;
+                }
             }
         }
     }

@@ -72,7 +72,10 @@ const Post = ({ post }) => {
             <span className="date">{moment(post.created_at).fromNow()}</span>
           </div>
         </div>
-        <MoreHorizIcon onClick={() => setMenuOpen(!menuOpen)} />
+        <MoreHorizIcon
+          className="icon"
+          onClick={() => setMenuOpen(!menuOpen)}
+        />
         {menuOpen && post.user_id === user.id && (
           <button onClick={handleDelete}>delete</button>
         )}
@@ -90,18 +93,24 @@ const Post = ({ post }) => {
           <>
             <div className="item">
               {data.includes(user.id) ? (
-                <FavoriteOutlinedIcon className="like" onClick={handleLike} />
+                <FavoriteOutlinedIcon
+                  className="like icon"
+                  onClick={handleLike}
+                />
               ) : (
-                <FavoriteBorderOutlinedIcon onClick={handleLike} />
+                <FavoriteBorderOutlinedIcon
+                  className="icon"
+                  onClick={handleLike}
+                />
               )}
               {data.length > 1 ? data.length + " Likes" : data.length + " Like"}
             </div>
             <div className="item" onClick={handleClick}>
-              <TextsmsOutlinedIcon />
+              <TextsmsOutlinedIcon className="icon" />
               View Comments
             </div>
             <div className="item">
-              <ShareOutlinedIcon />
+              <ShareOutlinedIcon className="icon" />
               Share
             </div>
           </>

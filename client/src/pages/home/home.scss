@@ -19,15 +19,14 @@
         height: 250px;
         margin-bottom: 30px;
 
+        @include mobile {
+            height: 80px;
+            justify-content: space-between;
+        }
+
         @include tablet {
             height: 200px;
             gap: 15px;
         }
-    }
-
-    .posts {
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
     }
 }

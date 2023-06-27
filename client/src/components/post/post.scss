@@ -1,3 +1,5 @@
+@import "../../responsive.scss";
+
 .post {
     display: flex;
     flex-direction: column;
@@ -8,6 +10,12 @@
     border-radius: 20px;
     background-color: var(--background);
     color: var(--text-color);
+
+    @include mobile {
+        .icon {
+            font-size: 16px;
+        }
+    }
 
     .post__top {
         display: flex;
@@ -24,6 +32,11 @@
                 height: 2.5rem;
                 border-radius: 50%;
                 object-fit: cover;
+
+                @include mobile {
+                    width: 2rem;
+                    height: 2rem;
+                }
             }
 
             .user__info {
@@ -56,6 +69,10 @@
     .post__content {
         margin: 20px 0;
 
+        @include mobile {
+            font-size: 14px;
+        }
+
         img {
             width: 100%;
             max-height: 500px;
@@ -75,6 +92,10 @@
             gap: 10px;
             cursor: pointer;
             font-size: 14px;
+
+            @include mobile {
+                font-size: 12px;
+            }
 
             .like {
                 color: red;
