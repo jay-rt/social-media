@@ -13,7 +13,11 @@
     background-color: var(--background-light);
 
     @include mobile {
-        display: none;
+        padding: 10px;
+
+        &>:not(div:first-child) {
+            display: none;
+        }
     }
 
     @include tablet {
@@ -31,7 +35,7 @@
         -moz-box-shadow: var(--box-shadow);
         box-shadow: var(--box-shadow);
         padding: 20px;
-        border-radius: 5px;
+        border-radius: 20px;
         font-size: 14px;
         background-color: var(--background);
 

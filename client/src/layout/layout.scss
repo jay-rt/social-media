@@ -1,5 +1,12 @@
+@import "../responsive.scss";
+
 .container {
     display: flex;
+    background-color: var(--background-light);
+
+    @include mobile {
+        flex-direction: column;
+    }
 
     .main {
         flex: 6;

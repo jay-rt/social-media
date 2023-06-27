@@ -4,6 +4,7 @@
     background-color: var(--background-light);
     padding: 20px 70px;
     min-height: calc(100vh - 60px);
+    border: none;
 
     @include mobile {
         padding: 10px;
