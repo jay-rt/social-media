@@ -5,13 +5,15 @@ import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Suspense, lazy, useState } from "react";
 import moment from "moment";
-import Comments from "../comments/Comments";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import { useSelector } from "react-redux";
 import { currentUser } from "../../redux/userSlice";
+import Loading from "../loading/Loading";
+
+const Comments = lazy(() => import("../comments/Comments"));
 
 const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
@@ -116,7 +118,11 @@ const Post = ({ post }) => {
           </>
         )}
       </div>
-      {commentOpen && <Comments postId={post.id} />}
+      {commentOpen && (
+        <Suspense fallback={<Loading />}>
+          <Comments postId={post.id} />
+        </Suspense>
+      )}
     </div>
   );
 };

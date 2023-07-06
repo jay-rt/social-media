@@ -16,6 +16,7 @@ import { useSelector } from "react-redux";
 import { currentUser } from "../../redux/userSlice";
 import { useState } from "react";
 import Update from "../../components/update/Update";
+import Loading from "../../components/loading/Loading";
 
 const Profile = () => {
   const [openUpdate, setOpenUpdate] = useState(false);
@@ -63,7 +64,7 @@ const Profile = () => {
       {userQuery.isError ? (
         <h1>{userQuery.error.message}</h1>
       ) : userQuery.isLoading ? (
-        <h1>Loading...</h1>
+        <Loading />
       ) : (
         <>
           <div className="images">
